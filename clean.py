@@ -34,3 +34,5 @@ if __name__=="__main__":
 
 #(4) write the cleaned data to the file specified by the output_file argument.
     df.to_csv(output_file)
+
+    print("Shape of the output file: " + str(df.shape))
