@@ -3,7 +3,7 @@ import pandas as pd
 
 if __name__=="__main__":
     arg_parser = argparse.ArgumentParser(
-        prog = 'clean1.py',          # program name
+        prog = 'clean.py',          # program name
         # description = 'The script for data cleansing'       # function description
         )
 
@@ -21,7 +21,7 @@ if __name__=="__main__":
         exit(1)
 
 
-#(1) merge the two input data files based on the ID of each respondent.
+ #(1) merge the two input data files based on the ID of each respondent.
     contact_info=pd.read_csv(contact_info_file)
     other_info=pd.read_csv(other_info_file)
     df = pd.merge(contact_info,other_info,left_on="respondent_id",right_on="id")
@@ -34,3 +34,5 @@ if __name__=="__main__":
 
 #(4) write the cleaned data to the file specified by the output_file argument.
     df.to_csv(output_file)
+
+    print("Shape of the output file: "+str(df.shape))
